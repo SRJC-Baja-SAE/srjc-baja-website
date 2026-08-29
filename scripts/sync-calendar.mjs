@@ -1,121 +1,108 @@
 import { mkdir, rename, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 
-const feedUrl = process.env.CANVAS_COURSE_ICS_URL;
+const apiToken = process.env.CANVAS_API_TOKEN;
+const canvasBaseUrl = 'https://canvas.santarosa.edu';
 const outputPath = resolve('src/generated/calendar-events.json');
 
-if (!feedUrl) {
-  throw new Error('CANVAS_COURSE_ICS_URL is required to sync the Canvas calendar.');
+const calendarContexts = {
+  course_85001: { scope: 'team', subteam: null },
+  group_56196: { scope: 'subteam', subteam: 'Vehicle Dynamics' },
+  group_56285: { scope: 'subteam', subteam: 'Powertrain' },
+  group_56286: { scope: 'subteam', subteam: 'Chassis' },
+  group_56287: { scope: 'subteam', subteam: 'Electrical' },
+  group_56288: { scope: 'subteam', subteam: 'Manufacturing' },
+  group_56289: { scope: 'subteam', subteam: 'Business' },
+  group_56290: { scope: 'subteam', subteam: 'Simulations' },
+};
+
+if (!apiToken) {
+  throw new Error('CANVAS_API_TOKEN is required to sync Canvas calendars.');
 }
 
-const response = await fetch(feedUrl, {
-  headers: {
-    Accept: 'text/calendar',
-    'User-Agent': 'SRJC-Baja-Website-Calendar-Sync/1.0 (https://srjcsaeclub.org)',
-  },
-});
+function getNextPage(linkHeader) {
+  if (!linkHeader) return null;
 
-if (!response.ok) {
-  throw new Error(`Canvas calendar request failed with HTTP ${response.status}.`);
-}
-
-const ics = await response.text();
-
-if (!ics.includes('BEGIN:VCALENDAR')) {
-  throw new Error('Canvas calendar response was not an iCalendar feed.');
-}
-
-const lines = ics.replace(/\r?\n[ \t]/g, '').split(/\r?\n/);
-const rawEvents = [];
-let current = null;
-
-for (const line of lines) {
-  if (line === 'BEGIN:VEVENT') {
-    current = new Map();
-    continue;
+  for (const part of linkHeader.split(',')) {
+    const match = part.match(/<([^>]+)>;\s*rel="next"/);
+    if (match) return match[1];
   }
 
-  if (line === 'END:VEVENT') {
-    if (current) rawEvents.push(current);
-    current = null;
-    continue;
-  }
-
-  if (!current) continue;
-
-  const colon = line.indexOf(':');
-  if (colon < 0) continue;
-
-  const property = line.slice(0, colon);
-  const value = line.slice(colon + 1);
-  const [name] = property.split(';');
-  current.set(name, value);
+  return null;
 }
 
-function unescapeText(value = '') {
-  return value
-    .replace(/\\n/gi, '\n')
-    .replace(/\\,/g, ',')
-    .replace(/\\;/g, ';')
-    .replace(/\\\\/g, '\\');
-}
+async function fetchCalendarEvents() {
+  const now = new Date();
+  const start = new Date(now);
+  const end = new Date(now);
+  start.setUTCDate(start.getUTCDate() - 1);
+  end.setUTCFullYear(end.getUTCFullYear() + 1);
 
-function normalizeLocation(title, location) {
-  if (!location) return null;
+  const url = new URL('/api/v1/calendar_events', canvasBaseUrl);
+  url.searchParams.set('type', 'event');
+  url.searchParams.set('start_date', start.toISOString());
+  url.searchParams.set('end_date', end.toISOString());
+  url.searchParams.set('per_page', '100');
 
-  const normalizedTitle = title.replace(/\s+\[SRJC Baja SAE Club\]$/, '');
-  if (normalizedTitle === 'General Meeting' && /^Lindley Center, Room (?:111|131)$/.test(location)) {
-    return 'Lindley Center, Room 111/131';
+  for (const contextCode of Object.keys(calendarContexts)) {
+    url.searchParams.append('context_codes[]', contextCode);
   }
 
-  return location;
-}
+  const events = [];
+  let nextUrl = url.toString();
 
-function parseDate(value) {
-  if (/^\d{8}$/.test(value)) {
-    return {
-      value: `${value.slice(0, 4)}-${value.slice(4, 6)}-${value.slice(6, 8)}`,
-      allDay: true,
-    };
+  while (nextUrl) {
+    const response = await fetch(nextUrl, {
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${apiToken}`,
+        'User-Agent': 'SRJC-Baja-Website-Calendar-Sync/2.0 (https://srjcsaeclub.org)',
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`Canvas calendar request failed with HTTP ${response.status}.`);
+    }
+
+    const page = await response.json();
+    if (!Array.isArray(page)) {
+      throw new Error('Canvas calendar response was not an event list.');
+    }
+
+    events.push(...page);
+    nextUrl = getNextPage(response.headers.get('link'));
   }
 
-  const match = value.match(/^(\d{4})(\d{2})(\d{2})T(\d{2})(\d{2})(\d{2})Z$/);
-  if (!match) {
-    throw new Error(`Unsupported Canvas calendar date format: ${value}`);
-  }
-
-  const [, year, month, day, hour, minute, second] = match;
-  return {
-    value: new Date(Date.UTC(+year, +month - 1, +day, +hour, +minute, +second)).toISOString(),
-    allDay: false,
-  };
+  return events;
 }
+
+const rawEvents = await fetchCalendarEvents();
 
 const events = rawEvents
-  .filter((event) => event.get('STATUS') !== 'CANCELLED')
-  .filter((event) => !['PRIVATE', 'CONFIDENTIAL'].includes(event.get('CLASS')))
+  .filter((event) => event && event.workflow_state !== 'deleted' && !event.hidden)
   .map((event) => {
-    const startValue = event.get('DTSTART');
-    if (!startValue) throw new Error('Canvas event is missing DTSTART.');
-
-    const start = parseDate(startValue);
-    const endValue = event.get('DTEND');
-    const end = endValue ? parseDate(endValue).value : null;
-    const rawTitle = unescapeText(event.get('SUMMARY') || 'Untitled event');
+    const context = calendarContexts[event.context_code];
+    if (!context || !event.start_at) return null;
 
     return {
-      id: event.get('UID') || `${start.value}-${rawTitle}`,
-      title: rawTitle.replace(/\s+\[SRJC Baja SAE Club\]$/, ''),
-      start: start.value,
-      end,
-      allDay: start.allDay,
-      location: normalizeLocation(rawTitle, event.get('LOCATION') ? unescapeText(event.get('LOCATION')) : null),
+      id: `canvas-event-${event.id}`,
+      title: typeof event.title === 'string' && event.title.trim() ? event.title.trim() : 'Untitled event',
+      start: event.all_day && event.all_day_date ? event.all_day_date : event.start_at,
+      end: event.all_day ? null : (event.end_at ?? null),
+      allDay: Boolean(event.all_day),
+      location: typeof event.location_name === 'string' && event.location_name.trim()
+        ? event.location_name.trim()
+        : null,
+      contextCode: event.context_code,
+      scope: context.scope,
+      subteam: context.subteam,
     };
   })
+  .filter(Boolean)
   .sort((a, b) => a.start.localeCompare(b.start));
 
 if (events.length === 0) {
-  throw new Error('Canvas calendar contained no usable events; keeping the last generated calendar instead.');
+  throw new Error('Canvas returned no usable public events; keeping the last generated calendar instead.');
 }
 
 const output = `${JSON.stringify({ events }, null, 2)}\n`;
@@ -125,4 +112,4 @@ await mkdir(dirname(outputPath), { recursive: true });
 await writeFile(tempPath, output, 'utf8');
 await rename(tempPath, outputPath);
 
-console.log(`Synced ${events.length} Canvas calendar events.`);
+console.log(`Synced ${events.length} Canvas events across ${Object.keys(calendarContexts).length} calendars.`);

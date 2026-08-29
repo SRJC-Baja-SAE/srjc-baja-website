@@ -930,14 +930,14 @@ section[id] {
 
 .calendar-events-heading {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
   gap: 24px;
   padding: 20px 0;
   border-bottom: 1px solid var(--line);
 }
 
-.calendar-events-heading > h3 {
+.calendar-events-heading h3 {
   margin: 0;
   font-family: Orbitron, Impact, sans-serif;
   font-size: 0.9rem;
@@ -945,8 +945,34 @@ section[id] {
 }
 
 .calendar-events-heading small {
+  display: block;
+  margin-top: 5px;
   color: var(--dim);
   font-size: 0.78rem;
+}
+
+.calendar-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--dim);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.calendar-filter select {
+  max-width: 190px;
+  padding: 8px 30px 8px 10px;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font: inherit;
+  letter-spacing: 0;
+  text-transform: none;
+  cursor: pointer;
 }
 
 .calendar-event-list {
@@ -966,6 +992,16 @@ section[id] {
 .calendar-event-date {
   color: var(--accent);
   font-weight: 900;
+}
+
+.calendar-event-audience {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--dim);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .calendar-event-body h3 {
@@ -1387,7 +1423,7 @@ section[id] {
     padding: 18px 0 20px;
   }
 
-  .calendar-events-heading > h3 {
+  .calendar-events-heading h3 {
     font-size: 1.02rem;
     letter-spacing: 0.02em;
   }
@@ -1514,9 +1550,19 @@ section[id] {
   }
 
   .calendar-events-heading {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 6px;
+    gap: 18px;
+  }
+
+  .calendar-filter {
+    flex-shrink: 0;
+  }
+
+  .calendar-filter span {
+    display: none;
+  }
+
+  .calendar-filter select {
+    max-width: 155px;
   }
 
   .calendar-event {

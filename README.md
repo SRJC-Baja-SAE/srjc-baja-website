@@ -36,15 +36,15 @@ npm audit
 - `src/calendar.ts` - calendar filtering and display formatting
 - `src/generated/calendar-events.json` - generated public event data
 - `src/styles.css` - site styles and responsive layout
-- `scripts/sync-calendar.mjs` - Canvas calendar feed parser and generator
+- `scripts/sync-calendar.mjs` - Canvas calendar API sync and static-data generator
 - `public/` - static assets, redirects, sitemap, robots file, and sponsorship package
 - `.github/workflows/` - validation and Canvas calendar synchronization
 
 ## Canvas calendar sync
 
-`.github/workflows/calendar-sync.yml` periodically syncs events from the SRJC Baja SAE Canvas course into `src/generated/calendar-events.json`.
+`.github/workflows/calendar-sync.yml` periodically syncs public schedule events from the SRJC Baja SAE Canvas course calendar and all seven subteam group calendars into `src/generated/calendar-events.json`.
 
-The workflow requires the repository secret `CANVAS_COURSE_ICS_URL`. Do not commit the calendar feed URL or other credentials to the repository.
+The workflow requires the repository secret `CANVAS_API_TOKEN`. It should be a read-only Canvas token scoped to `GET /api/v1/calendar_events`. Do not commit the token or other credentials to the repository. If the Canvas instance enforces token expiration, rotate the secret before it expires.
 
 ## Deployment
 

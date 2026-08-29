@@ -31,7 +31,7 @@ jobs:
       - name: Sync Canvas calendar
         run: npm run sync:calendar
         env:
-          CANVAS_COURSE_ICS_URL: ${{ secrets.CANVAS_COURSE_ICS_URL }}
+          CANVAS_API_TOKEN: ${{ secrets.CANVAS_API_TOKEN }}
 
       - name: Validate site
         run: npm run validate

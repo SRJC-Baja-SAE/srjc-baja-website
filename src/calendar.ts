@@ -7,7 +7,24 @@ export type CalendarEvent = {
   end: string | null;
   allDay: boolean;
   location: string | null;
+  contextCode: string;
+  scope: 'team' | 'subteam';
+  subteam: string | null;
 };
+
+export const calendarFilters = [
+  { value: 'all', label: 'All calendars' },
+  { value: 'team', label: 'Team' },
+  { value: 'Chassis', label: 'Chassis' },
+  { value: 'Vehicle Dynamics', label: 'Vehicle Dynamics' },
+  { value: 'Powertrain', label: 'Powertrain' },
+  { value: 'Electrical', label: 'Electrical' },
+  { value: 'Manufacturing', label: 'Manufacturing' },
+  { value: 'Business', label: 'Business' },
+  { value: 'Simulations', label: 'Simulations' },
+] as const;
+
+export type CalendarFilter = (typeof calendarFilters)[number]['value'];
 
 const timeZone = 'America/Los_Angeles';
 const events = calendarData.events as CalendarEvent[];
@@ -26,13 +43,23 @@ function eventEndDate(event: CalendarEvent) {
   return new Date(event.end);
 }
 
-export function getUpcomingEvents(limit = 6, now = new Date()) {
+function matchesCalendar(event: CalendarEvent, filter: CalendarFilter) {
+  if (filter === 'all') return true;
+  if (filter === 'team') return event.scope !== 'subteam';
+  return event.subteam === filter;
+}
+
+export function getUpcomingEvents(filter: CalendarFilter = 'all', limit = 8, now = new Date()) {
   return events
     .filter((event) => {
-      return eventEndDate(event).getTime() >= now.getTime();
+      return eventEndDate(event).getTime() >= now.getTime() && matchesCalendar(event, filter);
     })
     .sort((a, b) => eventDate(a).getTime() - eventDate(b).getTime())
     .slice(0, limit);
+}
+
+export function getEventAudience(event: CalendarEvent) {
+  return event.scope === 'subteam' && event.subteam ? event.subteam : 'Team';
 }
 
 export function formatEventDate(event: CalendarEvent) {

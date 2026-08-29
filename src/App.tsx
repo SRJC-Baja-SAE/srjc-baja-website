@@ -7,7 +7,14 @@ import {
   subteams,
   updates,
 } from './content';
-import { formatEventDate, formatEventTime, getUpcomingEvents } from './calendar';
+import {
+  calendarFilters,
+  formatEventDate,
+  formatEventTime,
+  getEventAudience,
+  getUpcomingEvents,
+  type CalendarFilter,
+} from './calendar';
 
 const navItems = [
   { label: 'About', href: '#about' },
@@ -38,8 +45,9 @@ function ExternalLink({
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activePhoto, setActivePhoto] = useState(0);
+  const [calendarFilter, setCalendarFilter] = useState<CalendarFilter>('all');
   const touchStartXRef = useRef<number | null>(null);
-  const upcomingEvents = getUpcomingEvents(6);
+  const upcomingEvents = getUpcomingEvents(calendarFilter, 8);
 
   const closeMenu = () => setMenuOpen(false);
   const showPreviousPhoto = () => {
@@ -362,8 +370,22 @@ function App() {
 
             <section className="calendar-events" id="events" aria-labelledby="events-heading">
               <div className="calendar-events-heading">
-                <h3 id="events-heading">Upcoming events</h3>
-                <small>Synced from Canvas</small>
+                <div>
+                  <h3 id="events-heading">Upcoming events</h3>
+                  <small>Synced from Canvas</small>
+                </div>
+                <label className="calendar-filter" htmlFor="calendar-filter">
+                  <span>Show</span>
+                  <select
+                    id="calendar-filter"
+                    value={calendarFilter}
+                    onChange={(event) => setCalendarFilter(event.target.value as CalendarFilter)}
+                  >
+                    {calendarFilters.map((filter) => (
+                      <option key={filter.value} value={filter.value}>{filter.label}</option>
+                    ))}
+                  </select>
+                </label>
               </div>
               {upcomingEvents.length > 0 ? (
                 <ol className="calendar-event-list">
@@ -373,6 +395,7 @@ function App() {
                         {formatEventDate(event)}
                       </time>
                       <div className="calendar-event-body">
+                        <span className="calendar-event-audience">{getEventAudience(event)}</span>
                         <h3>{event.title}</h3>
                         <p>{formatEventTime(event)}</p>
                         {event.location ? <p>{event.location}</p> : null}
@@ -382,8 +405,8 @@ function App() {
                 </ol>
               ) : (
                 <div className="calendar-empty">
-                  <h3>No upcoming events are listed yet.</h3>
-                  <p>Check back soon or contact the team for the current schedule.</p>
+                  <h3>No upcoming events are listed for this calendar.</h3>
+                  <p>Choose another calendar, check back soon, or contact the team for the current schedule.</p>
                 </div>
               )}
             </section>
