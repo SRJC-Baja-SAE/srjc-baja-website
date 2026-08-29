@@ -161,11 +161,11 @@ function App() {
           <div className="page-width">
             <div className="section-heading section-heading-row">
               <div>
-                <p className="eyebrow">Inside the shop</p>
+                <p className="eyebrow">Building the car</p>
                 <h2>Students doing the work</h2>
               </div>
               <p className="section-aside">
-                SRJC students design, machine, fabricate, and assemble the car in our campus shop.
+                SRJC students design, machine, fabricate, and assemble parts as they build the car.
               </p>
             </div>
 

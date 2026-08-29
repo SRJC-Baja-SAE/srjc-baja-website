@@ -117,28 +117,28 @@ export const partners: Partner[] = [
 export const galleryPhotos: GalleryPhoto[] = [
   {
     src: './assets/srjc-chassis.webp',
-    alt: 'Two SRJC Baja SAE members standing behind the first vehicle chassis in the shop',
-    caption: 'Developing SRJC\'s first chassis',
+    alt: 'Two SRJC Baja SAE members standing behind a welded steel chassis frame',
+    caption: 'Building the chassis frame',
   },
   {
     src: './assets/srjc-mill.webp',
-    alt: 'SRJC Baja SAE member operating a manual mill',
-    caption: 'Machining components in the SRJC shop',
+    alt: 'SRJC Baja SAE member operating a manual milling machine',
+    caption: 'Machining a component on a manual mill',
   },
   {
     src: './assets/srjc-fabrication.webp',
-    alt: 'Two SRJC Baja SAE members preparing frame material at a fabrication table',
-    caption: 'Preparing frame material for fabrication',
+    alt: 'Two SRJC Baja SAE members working with steel at a welding table',
+    caption: 'Preparing steel for fabrication',
   },
   {
     src: './assets/srjc-tubing.webp',
-    alt: 'SRJC Baja SAE member cutting steel tubing in the shop',
-    caption: 'Cutting tubing for the vehicle frame',
+    alt: 'SRJC Baja SAE member cutting steel tubing with a metal-cutting saw',
+    caption: 'Cutting steel tubing',
   },
   {
     src: './assets/srjc-team.webp',
-    alt: 'Five SRJC Baja SAE members together in the workshop',
-    caption: 'The students behind SRJC Baja SAE',
+    alt: 'Five SRJC Baja SAE members posing together',
+    caption: 'SRJC Baja SAE team members',
   },
 ];
 
