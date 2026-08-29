@@ -1,0 +1,50 @@
+name: Sync Canvas calendar
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: canvas-calendar-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out site
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Sync Canvas calendar
+        run: npm run sync:calendar
+        env:
+          CANVAS_COURSE_ICS_URL: ${{ secrets.CANVAS_COURSE_ICS_URL }}
+
+      - name: Validate site
+        run: npm run validate
+
+      - name: Commit updated calendar data
+        run: |
+          if git diff --quiet -- src/generated/calendar-events.json; then
+            echo "Calendar data is already current."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/generated/calendar-events.json
+          git commit -m "chore: sync Canvas calendar"
+          git push origin "HEAD:${{ github.event.repository.default_branch }}"
