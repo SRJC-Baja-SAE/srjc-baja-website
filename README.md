@@ -42,7 +42,7 @@ npm audit
 
 ## Canvas calendar sync
 
-`.github/workflows/calendar-sync.yml` periodically syncs public schedule events from the SRJC Baja SAE Canvas course calendar and all seven subteam group calendars into `src/generated/calendar-events.json`.
+`.github/workflows/calendar-sync.yml` periodically syncs public schedule events from the SRJC Baja SAE Canvas course calendar and all seven subteam group calendars into `src/generated/calendar-events.json`. When scheduled data changes, the sync commits the new static data and dispatches the Pages deployment workflow automatically.
 
 The workflow requires the repository secret `CANVAS_API_TOKEN`. It should be a read-only Canvas token scoped to `GET /api/v1/calendar_events`. Do not commit the token or other credentials to the repository. If the Canvas instance enforces token expiration, rotate the secret before it expires.
 

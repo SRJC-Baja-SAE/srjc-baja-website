@@ -6,6 +6,7 @@ on:
     - cron: '7,22,37,52 * * * *'
 
 permissions:
+  actions: write
   contents: write
 
 concurrency:
@@ -37,9 +38,11 @@ jobs:
         run: npm run validate
 
       - name: Commit updated calendar data
+        id: calendar-commit
         run: |
           if git diff --quiet -- src/generated/calendar-events.json; then
             echo "Calendar data is already current."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -48,3 +51,10 @@ jobs:
           git add src/generated/calendar-events.json
           git commit -m "chore: sync Canvas calendar"
           git push origin "HEAD:${{ github.event.repository.default_branch }}"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Deploy updated calendar
+        if: steps.calendar-commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run pages.yml --ref "${{ github.event.repository.default_branch }}"
