@@ -1355,9 +1355,53 @@ section[id] {
     max-width: 100%;
   }
 
+  .calendar-layout {
+    gap: 72px;
+  }
+
+  .meeting-block,
+  .competition-target,
+  .contact-block {
+    padding: 20px;
+    background: #131313;
+    border: 1px solid var(--line);
+  }
+
+  .meeting-block {
+    margin-top: 32px;
+    padding-left: 18px;
+    background: #151515;
+    border-left: 3px solid var(--accent);
+  }
+
+  .competition-target,
+  .contact-block {
+    margin-top: 14px;
+  }
+
+  .calendar-events {
+    border-top: 2px solid var(--accent);
+  }
+
+  .calendar-events-heading {
+    padding: 18px 0 20px;
+  }
+
+  .calendar-events-heading > h3 {
+    font-size: 1.02rem;
+    letter-spacing: 0.02em;
+  }
+
   .calendar-event {
     grid-template-columns: 105px minmax(0, 1fr);
     gap: 20px;
+    padding-block: 26px 28px;
+  }
+
+  .calendar-event-date {
+    font-size: 0.82rem;
+    letter-spacing: 0.035em;
+    text-transform: uppercase;
   }
 
   .footer-main {
@@ -1464,6 +1508,11 @@ section[id] {
     min-height: 120px;
   }
 
+  .meeting-block .button {
+    width: 100%;
+    justify-self: stretch;
+  }
+
   .calendar-events-heading {
     align-items: flex-start;
     flex-direction: column;
@@ -1472,7 +1521,11 @@ section[id] {
 
   .calendar-event {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 10px;
+  }
+
+  .calendar-event-body h3 {
+    font-size: 1.16rem;
   }
 
   .footer-main {

@@ -363,7 +363,7 @@ function App() {
             <section className="calendar-events" id="events" aria-labelledby="events-heading">
               <div className="calendar-events-heading">
                 <h3 id="events-heading">Upcoming events</h3>
-                <small>From Canvas</small>
+                <small>Synced from Canvas</small>
               </div>
               {upcomingEvents.length > 0 ? (
                 <ol className="calendar-event-list">
