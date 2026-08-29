@@ -18,9 +18,9 @@
       "end": "2026-09-04T01:00:00Z",
       "allDay": false,
       "location": "TBD",
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
     },
     {
       "id": "canvas-event-259937",
@@ -51,9 +51,9 @@
       "end": "2026-09-11T01:00:00Z",
       "allDay": false,
       "location": "TBD",
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
     },
     {
       "id": "canvas-event-259938",
@@ -95,9 +95,9 @@
       "end": "2026-09-18T01:00:00Z",
       "allDay": false,
       "location": "TBD",
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
     },
     {
       "id": "canvas-event-259939",
@@ -128,9 +128,9 @@
       "end": "2026-09-25T01:00:00Z",
       "allDay": false,
       "location": "TBD",
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
     },
     {
       "id": "canvas-event-259940",
@@ -172,9 +172,9 @@
       "end": "2026-10-02T01:00:00Z",
       "allDay": false,
       "location": "TBD",
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
     },
     {
       "id": "canvas-event-259941",
