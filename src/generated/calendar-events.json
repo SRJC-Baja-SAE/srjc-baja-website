@@ -1,17 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-257545",
-      "title": "General Meeting",
-      "start": "2026-08-29T01:00:00Z",
-      "end": "2026-08-29T02:30:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 111/131",
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
       "id": "canvas-event-259897",
       "title": "Vehicle Dynamics Meeting",
       "start": "2026-09-03T22:00:00Z",
