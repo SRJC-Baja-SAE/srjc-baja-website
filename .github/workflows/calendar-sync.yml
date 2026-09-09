@@ -50,11 +50,13 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add src/generated/calendar-events.json
           git commit -m "chore: sync Canvas calendar"
-          git push origin "HEAD:${{ github.event.repository.default_branch }}"
+          git push origin "HEAD:${{ github.ref_name }}"
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
       - name: Deploy updated calendar
-        if: steps.calendar-commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+        if: >-
+          github.ref_name == github.event.repository.default_branch &&
+          (steps.calendar-commit.outputs.changed == 'true' || github.event_name == 'workflow_dispatch')
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh workflow run pages.yml --ref "${{ github.event.repository.default_branch }}"
