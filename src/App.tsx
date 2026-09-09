@@ -71,6 +71,34 @@ function eventSymbolKind(event: CalendarEvent): EventSymbolKind {
   return isMajorEvent(event) ? 'major' : getEventType(event);
 }
 
+const maxMonthEventsPerDay = 4;
+
+function monthEventPriority(event: CalendarEvent) {
+  if (isMajorEvent(event)) return 0;
+  const typePriority: Record<CalendarEventType, number> = {
+    milestone: 1,
+    purchase: 1,
+    external: 2,
+    meeting: 3,
+  };
+  return typePriority[getEventType(event)];
+}
+
+function prioritizeMonthEvents(dayEvents: CalendarEvent[]) {
+  return dayEvents
+    .map((event, index) => ({ event, index }))
+    .sort((a, b) => {
+      const priority = monthEventPriority(a.event) - monthEventPriority(b.event);
+      if (priority !== 0) return priority;
+
+      const scopePriority = Number(a.event.scope === 'subteam') - Number(b.event.scope === 'subteam');
+      if (scopePriority !== 0) return scopePriority;
+
+      return a.index - b.index;
+    })
+    .map(({ event }) => event);
+}
+
 function EventDetail({ event, onClose }: { event: CalendarEvent; onClose: () => void }) {
   useEffect(() => {
     const closeOnEscape = (key: KeyboardEvent) => {
@@ -99,6 +127,56 @@ function EventDetail({ event, onClose }: { event: CalendarEvent; onClose: () => 
           {event.location ? <div><dt>Location</dt><dd>{event.location}</dd></div> : null}
         </dl>
         {event.description ? <p className="event-description">{event.description}</p> : null}
+      </section>
+    </div>
+  );
+}
+
+function DayDetail({
+  events: dayEvents,
+  onClose,
+  onEvent,
+}: {
+  events: CalendarEvent[];
+  onClose: () => void;
+  onEvent: (event: CalendarEvent) => void;
+}) {
+  useEffect(() => {
+    const closeOnEscape = (key: KeyboardEvent) => {
+      if (key.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [onClose]);
+
+  const firstEvent = dayEvents[0];
+
+  return (
+    <div className="event-detail-backdrop" role="presentation" onMouseDown={onClose}>
+      <section
+        className="event-detail day-detail"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="day-detail-title"
+        onMouseDown={(click) => click.stopPropagation()}
+      >
+        <button className="event-detail-close" type="button" onClick={onClose} aria-label="Close day details">×</button>
+        <p className="eyebrow">Day schedule</p>
+        <h2 id="day-detail-title">{firstEvent ? formatEventDate(firstEvent, true) : 'Events'}</h2>
+        <div className="day-detail-events">
+          {dayEvents.map((event) => (
+            <button
+              type="button"
+              className={`agenda-event agenda-event-${getEventType(event)} team-${(event.subteam ?? 'team').toLowerCase().replace(/\s+/g, '-')}`}
+              key={event.id}
+              onClick={() => onEvent(event)}
+            >
+              <span className={`event-kind event-kind-${getEventType(event)}`}><EventSymbol kind={eventSymbolKind(event)} /><span>{getEventTypeLabel(event)}</span></span>
+              <strong>{event.title}</strong>
+              <small>{getEventAudience(event)} · {formatEventTime(event)}</small>
+            </button>
+          ))}
+        </div>
       </section>
     </div>
   );
@@ -156,6 +234,7 @@ function CalendarPage() {
   const [teams, setTeams] = useState<Set<CalendarFilter>>(new Set());
   const [types, setTypes] = useState<Set<CalendarEventType>>(new Set());
   const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
+  const [selectedDayEvents, setSelectedDayEvents] = useState<CalendarEvent[] | null>(null);
   const filtered = useMemo(() => events.filter((event) => matchesFilters(event, teams, types)), [teams, types]);
   const monthEvents = filtered.filter((event) => dateKey(event).startsWith(monthKey(month)));
   const daysInMonth = new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate();
@@ -242,19 +321,39 @@ function CalendarPage() {
                     <div className={key ? 'calendar-day' : 'calendar-day is-outside'} key={index}>
                       {key ? <time dateTime={key}>{day}</time> : null}
                       <div className="day-events">
-                        {(grouped[key] ?? []).map((event) => (
-                          <button
-                            type="button"
-                            key={event.id}
-                            title={`${getEventTypeLabel(event)}: ${event.title}. ${getEventAudience(event)}.`}
-                            className={`event-chip event-chip-${getEventType(event)} team-${(event.subteam ?? 'team').toLowerCase().replace(/\s+/g, '-')} ${isMajorEvent(event) ? 'is-major' : ''}`}
-                            onClick={() => setSelectedEvent(event)}
-                          >
-                            <EventSymbol kind={eventSymbolKind(event)} />
-                            <b>{event.title}</b>
-                            <small>{getEventAudience(event)}</small>
-                          </button>
-                        ))}
+                        {(() => {
+                          const dayEvents = prioritizeMonthEvents(grouped[key] ?? []);
+                          const visibleEvents = dayEvents.slice(0, maxMonthEventsPerDay);
+                          const hiddenCount = dayEvents.length - visibleEvents.length;
+
+                          return (
+                            <>
+                              {visibleEvents.map((event) => (
+                                <button
+                                  type="button"
+                                  key={event.id}
+                                  title={`${getEventTypeLabel(event)}: ${event.title}. ${getEventAudience(event)}.`}
+                                  className={`event-chip event-chip-${getEventType(event)} team-${(event.subteam ?? 'team').toLowerCase().replace(/\s+/g, '-')} ${isMajorEvent(event) ? 'is-major' : ''}`}
+                                  onClick={() => setSelectedEvent(event)}
+                                >
+                                  <EventSymbol kind={eventSymbolKind(event)} />
+                                  <b>{event.title}</b>
+                                  <small>{getEventAudience(event)}</small>
+                                </button>
+                              ))}
+                              {hiddenCount > 0 ? (
+                                <button
+                                  type="button"
+                                  className="day-more-events"
+                                  onClick={() => setSelectedDayEvents(dayEvents)}
+                                  aria-label={`Show ${dayEvents.length} events for ${key}`}
+                                >
+                                  +{hiddenCount} more
+                                </button>
+                              ) : null}
+                            </>
+                          );
+                        })()}
                       </div>
                     </div>
                   );
@@ -279,6 +378,16 @@ function CalendarPage() {
           )}
         </div>
       </main>
+      {selectedDayEvents ? (
+        <DayDetail
+          events={selectedDayEvents}
+          onClose={() => setSelectedDayEvents(null)}
+          onEvent={(event) => {
+            setSelectedDayEvents(null);
+            setSelectedEvent(event);
+          }}
+        />
+      ) : null}
       {selectedEvent ? <EventDetail event={selectedEvent} onClose={() => setSelectedEvent(null)} /> : null}
     </div>
   );
