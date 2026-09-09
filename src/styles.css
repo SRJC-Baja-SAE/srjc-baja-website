@@ -1182,13 +1182,6 @@ section[id] {
   white-space: nowrap;
 }
 
-.calendar-legend b {
-  min-width: 11px;
-  color: #f4f1eb;
-  font-size: 0.68rem;
-  text-align: center;
-}
-
 .calendar-legend small {
   color: var(--dim);
 }
@@ -1289,11 +1282,20 @@ section[id] {
   cursor: pointer;
 }
 
-.event-chip > span {
-  grid-row: 1 / 3;
+.event-symbol {
+  display: block;
+  width: 10px;
+  height: 10px;
+  flex: 0 0 10px;
+  overflow: visible;
+}
+
+.event-chip > .event-symbol {
+  grid-row: 1;
+  grid-column: 1;
+  align-self: center;
+  justify-self: center;
   color: var(--team-accent);
-  font-size: 0.55rem;
-  line-height: 1.5;
 }
 
 .event-chip b {
@@ -1333,7 +1335,7 @@ section[id] {
   opacity: 1;
 }
 
-.event-chip.is-major > span {
+.event-chip.is-major > .event-symbol {
   color: #f4f1eb;
 }
 
@@ -1389,6 +1391,9 @@ section[id] {
 .agenda-event small { color: var(--muted); }
 
 .event-kind {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   color: var(--team-accent, var(--accent));
   font-size: 0.62rem;
   font-weight: 900;

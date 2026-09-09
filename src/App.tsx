@@ -16,7 +16,6 @@ import {
   formatEventDate,
   formatEventTime,
   getEventAudience,
-  getEventIcon,
   getEventType,
   getEventTypeLabel,
   getUpcomingEvents,
@@ -54,6 +53,24 @@ function ExternalLink({
   );
 }
 
+type EventSymbolKind = CalendarEventType | 'major';
+
+function EventSymbol({ kind }: { kind: EventSymbolKind }) {
+  return (
+    <svg className={`event-symbol event-symbol-${kind}`} viewBox="0 0 12 12" aria-hidden="true" focusable="false">
+      {kind === 'major' ? <path d="M6 1 11 6 6 11 1 6Z" fill="currentColor" /> : null}
+      {kind === 'milestone' ? <circle cx="6" cy="6" r="3.2" fill="currentColor" /> : null}
+      {kind === 'meeting' ? <circle cx="6" cy="6" r="3.45" fill="none" stroke="currentColor" strokeWidth="1.35" /> : null}
+      {kind === 'purchase' ? <path d="M6 0.9 7.5 4.15 11.05 4.5 8.4 6.85 9.2 10.35 6 8.55 2.8 10.35 3.6 6.85 0.95 4.5 4.5 4.15Z" fill="currentColor" /> : null}
+      {kind === 'external' ? <path d="M6 1.1 11 10.2H1Z" fill="currentColor" /> : null}
+    </svg>
+  );
+}
+
+function eventSymbolKind(event: CalendarEvent): EventSymbolKind {
+  return isMajorEvent(event) ? 'major' : getEventType(event);
+}
+
 function EventDetail({ event, onClose }: { event: CalendarEvent; onClose: () => void }) {
   useEffect(() => {
     const closeOnEscape = (key: KeyboardEvent) => {
@@ -73,7 +90,7 @@ function EventDetail({ event, onClose }: { event: CalendarEvent; onClose: () => 
         onMouseDown={(click) => click.stopPropagation()}
       >
         <button className="event-detail-close" type="button" onClick={onClose} aria-label="Close event details">×</button>
-        <span className={`event-kind event-kind-${getEventType(event)}`}>{getEventIcon(event)} {getEventTypeLabel(event)}</span>
+        <span className={`event-kind event-kind-${getEventType(event)}`}><EventSymbol kind={eventSymbolKind(event)} /><span>{getEventTypeLabel(event)}</span></span>
         <h2 id="event-detail-title">{event.title}</h2>
         <dl>
           <div><dt>Date</dt><dd>{formatEventDate(event, true)}</dd></div>
@@ -199,11 +216,11 @@ function CalendarPage() {
           </div>
           <FilterBar teams={teams} types={types} onTeam={toggleTeam} onTypes={setTypes} />
           <div className="calendar-legend" aria-label="Calendar legend">
-            <span><b>◆</b> Major gate</span>
-            <span><b>●</b> Milestone</span>
-            <span><b>★</b> Purchase</span>
-            <span><b>○</b> Meeting</span>
-            <span><b>▲</b> External deadline</span>
+            <span><EventSymbol kind="major" /> Major gate</span>
+            <span><EventSymbol kind="milestone" /> Milestone</span>
+            <span><EventSymbol kind="purchase" /> Purchase</span>
+            <span><EventSymbol kind="meeting" /> Meeting</span>
+            <span><EventSymbol kind="external" /> External deadline</span>
             <small>Edge color identifies the responsible team.</small>
             {teams.size > 0 || types.size > 0 ? (
               <button type="button" onClick={() => { setTeams(new Set()); setTypes(new Set()); }}>Clear filters</button>
@@ -233,7 +250,7 @@ function CalendarPage() {
                             className={`event-chip event-chip-${getEventType(event)} team-${(event.subteam ?? 'team').toLowerCase().replace(/\s+/g, '-')} ${isMajorEvent(event) ? 'is-major' : ''}`}
                             onClick={() => setSelectedEvent(event)}
                           >
-                            <span>{getEventIcon(event)}</span>
+                            <EventSymbol kind={eventSymbolKind(event)} />
                             <b>{event.title}</b>
                             <small>{getEventAudience(event)}</small>
                           </button>
@@ -251,7 +268,7 @@ function CalendarPage() {
                   <time dateTime={key}>{new Date(`${key}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', weekday: 'short' })}</time>
                   <div>{dayEvents.map((event) => (
                     <button type="button" className={`agenda-event agenda-event-${getEventType(event)} team-${(event.subteam ?? 'team').toLowerCase().replace(/\s+/g, '-')}`} key={event.id} onClick={() => setSelectedEvent(event)}>
-                      <span className={`event-kind event-kind-${getEventType(event)}`}>{getEventIcon(event)} {getEventTypeLabel(event)}</span>
+                      <span className={`event-kind event-kind-${getEventType(event)}`}><EventSymbol kind={eventSymbolKind(event)} /><span>{getEventTypeLabel(event)}</span></span>
                       <strong>{event.title}</strong>
                       <small>{getEventAudience(event)} · {formatEventTime(event)}</small>
                     </button>
