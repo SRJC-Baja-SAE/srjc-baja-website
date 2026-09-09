@@ -29,6 +29,20 @@
       "subteam": "Electrical"
     },
     {
+      "id": "canvas-event-259953",
+      "title": "Electrical Meeting",
+      "start": "2026-09-10T00:00:00Z",
+      "end": "2026-09-10T01:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 111",
+      "description": "Electrical subteam meeting. Every other Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56287",
+      "scope": "subteam",
+      "subteam": "Electrical"
+    },
+    {
       "id": "canvas-event-259898",
       "title": "Vehicle Dynamics Meeting",
       "start": "2026-09-10T22:00:00Z",
@@ -55,20 +69,6 @@
       "contextCode": "group_56286",
       "scope": "subteam",
       "subteam": "Chassis"
-    },
-    {
-      "id": "canvas-event-259953",
-      "title": "Electrical Meeting",
-      "start": "2026-09-11T23:00:00Z",
-      "end": "2026-09-12T01:00:00Z",
-      "allDay": false,
-      "location": "TBD",
-      "description": "Electrical subteam meeting. Every other Friday at 4:00 PM starting September 11. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56287",
-      "scope": "subteam",
-      "subteam": "Electrical"
     },
     {
       "id": "canvas-event-257547",
@@ -309,6 +309,20 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-262036",
+      "title": "Electrical Meeting",
+      "start": "2026-09-24T00:00:00Z",
+      "end": "2026-09-24T01:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 111",
+      "description": "Electrical subteam meeting. Every other Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56287",
+      "scope": "subteam",
+      "subteam": "Electrical"
+    },
+    {
       "id": "canvas-event-259900",
       "title": "Vehicle Dynamics Meeting",
       "start": "2026-09-24T22:00:00Z",
@@ -505,6 +519,20 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-259955",
+      "title": "Electrical Meeting",
+      "start": "2026-10-08T00:00:00Z",
+      "end": "2026-10-08T01:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 111",
+      "description": "Electrical subteam meeting. Every other Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56287",
+      "scope": "subteam",
+      "subteam": "Electrical"
+    },
+    {
       "id": "canvas-event-259942",
       "title": "Chassis Meeting",
       "start": "2026-10-09T03:00:00Z",
@@ -517,20 +545,6 @@
       "contextCode": "group_56286",
       "scope": "subteam",
       "subteam": "Chassis"
-    },
-    {
-      "id": "canvas-event-259955",
-      "title": "Electrical Meeting",
-      "start": "2026-10-09T23:00:00Z",
-      "end": "2026-10-10T01:00:00Z",
-      "allDay": false,
-      "location": "TBD",
-      "description": "Electrical subteam meeting. Every other Friday at 4:00 PM starting September 11. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56287",
-      "scope": "subteam",
-      "subteam": "Electrical"
     },
     {
       "id": "canvas-event-257551",
@@ -575,6 +589,20 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-259956",
+      "title": "Electrical Meeting",
+      "start": "2026-10-22T00:00:00Z",
+      "end": "2026-10-22T01:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 111",
+      "description": "Electrical subteam meeting. Every other Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56287",
+      "scope": "subteam",
+      "subteam": "Electrical"
+    },
+    {
       "id": "canvas-event-262015",
       "title": "Bare Chassis Complete and Inspected",
       "start": "2026-10-23",
@@ -615,20 +643,6 @@
       "contextCode": "group_56286",
       "scope": "subteam",
       "subteam": "Chassis"
-    },
-    {
-      "id": "canvas-event-259956",
-      "title": "Electrical Meeting",
-      "start": "2026-10-23T23:00:00Z",
-      "end": "2026-10-24T01:00:00Z",
-      "allDay": false,
-      "location": "TBD",
-      "description": "Electrical subteam meeting. Every other Friday at 4:00 PM starting September 11. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56287",
-      "scope": "subteam",
-      "subteam": "Electrical"
     },
     {
       "id": "canvas-event-257553",
@@ -701,6 +715,20 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-259957",
+      "title": "Electrical Meeting",
+      "start": "2026-11-05T01:00:00Z",
+      "end": "2026-11-05T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 111",
+      "description": "Electrical subteam meeting. Every other Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56287",
+      "scope": "subteam",
+      "subteam": "Electrical"
+    },
+    {
       "id": "canvas-event-261998",
       "title": "Rolling Chassis Milestone",
       "start": "2026-11-06",
@@ -727,20 +755,6 @@
       "contextCode": "group_56286",
       "scope": "subteam",
       "subteam": "Chassis"
-    },
-    {
-      "id": "canvas-event-259957",
-      "title": "Electrical Meeting",
-      "start": "2026-11-07T00:00:00Z",
-      "end": "2026-11-07T02:00:00Z",
-      "allDay": false,
-      "location": "TBD",
-      "description": "Electrical subteam meeting. Every other Friday at 4:00 PM starting September 11. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56287",
-      "scope": "subteam",
-      "subteam": "Electrical"
     },
     {
       "id": "canvas-event-257555",
@@ -813,6 +827,20 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-259958",
+      "title": "Electrical Meeting",
+      "start": "2026-11-19T01:00:00Z",
+      "end": "2026-11-19T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 111",
+      "description": "Electrical subteam meeting. Every other Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56287",
+      "scope": "subteam",
+      "subteam": "Electrical"
+    },
+    {
       "id": "canvas-event-262023",
       "title": "Powertrain Installed and Working",
       "start": "2026-11-20",
@@ -839,20 +867,6 @@
       "contextCode": "group_56286",
       "scope": "subteam",
       "subteam": "Chassis"
-    },
-    {
-      "id": "canvas-event-259958",
-      "title": "Electrical Meeting",
-      "start": "2026-11-21T00:00:00Z",
-      "end": "2026-11-21T02:00:00Z",
-      "allDay": false,
-      "location": "TBD",
-      "description": "Electrical subteam meeting. Every other Friday at 4:00 PM starting September 11. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56287",
-      "scope": "subteam",
-      "subteam": "Electrical"
     },
     {
       "id": "canvas-event-257557",
@@ -897,6 +911,20 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-259959",
+      "title": "Electrical Meeting",
+      "start": "2026-12-03T01:00:00Z",
+      "end": "2026-12-03T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 111",
+      "description": "Electrical subteam meeting. Every other Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56287",
+      "scope": "subteam",
+      "subteam": "Electrical"
+    },
+    {
       "id": "canvas-event-262002",
       "title": "First Drive Hardware and Safety Check",
       "start": "2026-12-04",
@@ -937,20 +965,6 @@
       "contextCode": "group_56286",
       "scope": "subteam",
       "subteam": "Chassis"
-    },
-    {
-      "id": "canvas-event-259959",
-      "title": "Electrical Meeting",
-      "start": "2026-12-05T00:00:00Z",
-      "end": "2026-12-05T02:00:00Z",
-      "allDay": false,
-      "location": "TBD",
-      "description": "Electrical subteam meeting. Every other Friday at 4:00 PM starting September 11. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56287",
-      "scope": "subteam",
-      "subteam": "Electrical"
     },
     {
       "id": "canvas-event-257559",
