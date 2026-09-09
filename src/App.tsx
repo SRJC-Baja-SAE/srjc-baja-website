@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import {
   canvasEnrollmentUrl,
   galleryPhotos,
@@ -9,10 +9,22 @@ import {
 } from './content';
 import {
   calendarFilters,
+  calendarTypes,
+  dateKey,
+  eventDate,
+  events,
   formatEventDate,
   formatEventTime,
   getEventAudience,
+  getEventIcon,
+  getEventType,
+  getEventTypeLabel,
   getUpcomingEvents,
+  isMajorEvent,
+  matchesFilters,
+  monthKey,
+  type CalendarEvent,
+  type CalendarEventType,
   type CalendarFilter,
 } from './calendar';
 
@@ -21,7 +33,7 @@ const navItems = [
   { label: 'Updates', href: '#updates' },
   { label: 'Team', href: '#team' },
   { label: 'Sponsors', href: '#sponsors' },
-  { label: 'Calendar', href: '#calendar' },
+  { label: 'Calendar', href: './calendar/' },
 ] as const;
 
 const sponsorTiers = ['Platinum', 'Gold', 'Bronze', 'Copper'] as const;
@@ -42,12 +54,224 @@ function ExternalLink({
   );
 }
 
+function EventDetail({ event, onClose }: { event: CalendarEvent; onClose: () => void }) {
+  useEffect(() => {
+    const closeOnEscape = (key: KeyboardEvent) => {
+      if (key.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => window.removeEventListener('keydown', closeOnEscape);
+  }, [onClose]);
+
+  return (
+    <div className="event-detail-backdrop" role="presentation" onMouseDown={onClose}>
+      <section
+        className="event-detail"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="event-detail-title"
+        onMouseDown={(click) => click.stopPropagation()}
+      >
+        <button className="event-detail-close" type="button" onClick={onClose} aria-label="Close event details">×</button>
+        <span className={`event-kind event-kind-${getEventType(event)}`}>{getEventIcon(event)} {getEventTypeLabel(event)}</span>
+        <h2 id="event-detail-title">{event.title}</h2>
+        <dl>
+          <div><dt>Date</dt><dd>{formatEventDate(event, true)}</dd></div>
+          <div><dt>Time</dt><dd>{formatEventTime(event)}</dd></div>
+          <div><dt>Team</dt><dd>{getEventAudience(event)}</dd></div>
+          {event.location ? <div><dt>Location</dt><dd>{event.location}</dd></div> : null}
+        </dl>
+        {event.description ? <p className="event-description">{event.description}</p> : null}
+      </section>
+    </div>
+  );
+}
+
+function FilterBar({
+  teams,
+  types,
+  onTeam,
+  onTypes,
+}: {
+  teams: Set<CalendarFilter>;
+  types: Set<CalendarEventType>;
+  onTeam: (value: CalendarFilter | 'all') => void;
+  onTypes: (values: Set<CalendarEventType>) => void;
+}) {
+  return (
+    <div className="calendar-filters" aria-label="Calendar filters">
+      <div className="team-filter-chips">
+        <button type="button" className={teams.size === 0 ? 'filter-chip is-active' : 'filter-chip'} onClick={() => onTeam('all')}>All</button>
+        {calendarFilters.map((filter) => (
+          <button
+            type="button"
+            key={filter.value}
+            className={`filter-chip team-${filter.value.toLowerCase().replace(/\s+/g, '-')} ${teams.has(filter.value) ? 'is-active' : ''}`}
+            aria-pressed={teams.has(filter.value)}
+            onClick={() => onTeam(filter.value)}
+          >
+            {filter.label}
+          </button>
+        ))}
+      </div>
+      <label className="type-filter">
+        <span>Type</span>
+        <select
+          value={types.size === 1 ? [...types][0] : types.size === 0 ? 'all' : 'mixed'}
+          onChange={(change) => {
+            const value = change.target.value;
+            onTypes(value === 'all' ? new Set() : new Set([value as CalendarEventType]));
+          }}
+        >
+          <option value="all">All types</option>
+          {types.size > 1 ? <option value="mixed">Multiple types</option> : null}
+          {calendarTypes.map((type) => <option key={type.value} value={type.value}>{type.label}</option>)}
+        </select>
+      </label>
+    </div>
+  );
+}
+
+function CalendarPage() {
+  const firstEvent = events[0] ? eventDate(events[0]) : new Date();
+  const [month, setMonth] = useState(new Date(firstEvent.getFullYear(), firstEvent.getMonth(), 1));
+  const [view, setView] = useState<'month' | 'agenda'>(() => window.matchMedia('(max-width: 760px)').matches ? 'agenda' : 'month');
+  const [teams, setTeams] = useState<Set<CalendarFilter>>(new Set());
+  const [types, setTypes] = useState<Set<CalendarEventType>>(new Set());
+  const [selectedEvent, setSelectedEvent] = useState<CalendarEvent | null>(null);
+  const filtered = useMemo(() => events.filter((event) => matchesFilters(event, teams, types)), [teams, types]);
+  const monthEvents = filtered.filter((event) => dateKey(event).startsWith(monthKey(month)));
+  const daysInMonth = new Date(month.getFullYear(), month.getMonth() + 1, 0).getDate();
+  const leading = new Date(month.getFullYear(), month.getMonth(), 1).getDay();
+  const cells = Array.from({ length: Math.ceil((leading + daysInMonth) / 7) * 7 }, (_, index) => index - leading + 1);
+  const grouped = monthEvents.reduce<Record<string, CalendarEvent[]>>((result, event) => {
+    (result[dateKey(event)] ??= []).push(event);
+    return result;
+  }, {});
+  const toggleTeam = (value: CalendarFilter | 'all') => {
+    if (value === 'all') return setTeams(new Set());
+    setTeams((current) => {
+      const next = new Set(current);
+      if (next.has(value)) {
+        next.delete(value);
+      } else {
+        next.add(value);
+      }
+      return next;
+    });
+  };
+  const moveMonth = (amount: number) => setMonth(new Date(month.getFullYear(), month.getMonth() + amount, 1));
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 760px)');
+    const switchForScreen = (change: MediaQueryListEvent) => setView(change.matches ? 'agenda' : 'month');
+    media.addEventListener('change', switchForScreen);
+    return () => media.removeEventListener('change', switchForScreen);
+  }, []);
+
+  return (
+    <div className="site-shell calendar-page">
+      <header className="site-header">
+        <a className="brand" href="../" aria-label="SRJC Baja SAE home">
+          <img src="../assets/srjc-baja-logo.png" alt="" width="42" height="42" />
+          <span><strong>SRJC BAJA</strong><small>SAE CLUB</small></span>
+        </a>
+        <nav className="site-nav calendar-page-nav" aria-label="Calendar navigation">
+          <a href="../">Home</a>
+          <ExternalLink className="nav-cta" href={canvasEnrollmentUrl}>Join</ExternalLink>
+        </nav>
+      </header>
+      <main className="full-calendar-main">
+        <div className="page-width">
+          <div className="full-calendar-intro">
+            <div><p className="eyebrow">Team schedule</p><h1>Calendar</h1></div>
+            <p>See whole-team gates, subteam deliverables, purchases, meetings, and external deadlines.</p>
+          </div>
+          <div className="calendar-toolbar">
+            <div className="view-toggle" aria-label="Calendar view">
+              <button type="button" className={view === 'month' ? 'is-active' : ''} onClick={() => setView('month')}>Month</button>
+              <button type="button" className={view === 'agenda' ? 'is-active' : ''} onClick={() => setView('agenda')}>Agenda</button>
+            </div>
+            <div className="month-navigation">
+              <button type="button" onClick={() => moveMonth(-1)} aria-label="Previous month">‹</button>
+              <h2>{month.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</h2>
+              <button type="button" onClick={() => moveMonth(1)} aria-label="Next month">›</button>
+            </div>
+          </div>
+          <FilterBar teams={teams} types={types} onTeam={toggleTeam} onTypes={setTypes} />
+          <div className="calendar-legend" aria-label="Calendar legend">
+            <span><b>◆</b> Major gate</span>
+            <span><b>●</b> Milestone</span>
+            <span><b>★</b> Purchase</span>
+            <span><b>○</b> Meeting</span>
+            <span><b>▲</b> External deadline</span>
+            <small>Edge color identifies the responsible team.</small>
+            {teams.size > 0 || types.size > 0 ? (
+              <button type="button" onClick={() => { setTeams(new Set()); setTypes(new Set()); }}>Clear filters</button>
+            ) : null}
+          </div>
+          {monthEvents.length === 0 ? (
+            <div className="calendar-no-results">
+              <strong>No matching events this month</strong>
+              <span>Try another team, event type, or month.</span>
+            </div>
+          ) : null}
+          {view === 'month' ? (
+            <div className="month-grid-wrap">
+              <div className="month-grid weekdays">{['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map((day) => <div key={day}>{day}</div>)}</div>
+              <div className="month-grid">
+                {cells.map((day, index) => {
+                  const key = day > 0 && day <= daysInMonth ? `${monthKey(month)}-${String(day).padStart(2, '0')}` : '';
+                  return (
+                    <div className={key ? 'calendar-day' : 'calendar-day is-outside'} key={index}>
+                      {key ? <time dateTime={key}>{day}</time> : null}
+                      <div className="day-events">
+                        {(grouped[key] ?? []).map((event) => (
+                          <button
+                            type="button"
+                            key={event.id}
+                            title={`${getEventTypeLabel(event)}: ${event.title}. ${getEventAudience(event)}.`}
+                            className={`event-chip event-chip-${getEventType(event)} team-${(event.subteam ?? 'team').toLowerCase().replace(/\s+/g, '-')} ${isMajorEvent(event) ? 'is-major' : ''}`}
+                            onClick={() => setSelectedEvent(event)}
+                          >
+                            <span>{getEventIcon(event)}</span>
+                            <b>{event.title}</b>
+                            <small>{getEventAudience(event)}</small>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ) : (
+            <div className="calendar-agenda">
+              {Object.entries(grouped).sort(([a], [b]) => a.localeCompare(b)).map(([key, dayEvents]) => (
+                <section className="agenda-day" key={key}>
+                  <time dateTime={key}>{new Date(`${key}T12:00:00`).toLocaleDateString('en-US', { month: 'short', day: 'numeric', weekday: 'short' })}</time>
+                  <div>{dayEvents.map((event) => (
+                    <button type="button" className={`agenda-event agenda-event-${getEventType(event)} team-${(event.subteam ?? 'team').toLowerCase().replace(/\s+/g, '-')}`} key={event.id} onClick={() => setSelectedEvent(event)}>
+                      <span className={`event-kind event-kind-${getEventType(event)}`}>{getEventIcon(event)} {getEventTypeLabel(event)}</span>
+                      <strong>{event.title}</strong>
+                      <small>{getEventAudience(event)} · {formatEventTime(event)}</small>
+                    </button>
+                  ))}</div>
+                </section>
+              ))}
+            </div>
+          )}
+        </div>
+      </main>
+      {selectedEvent ? <EventDetail event={selectedEvent} onClose={() => setSelectedEvent(null)} /> : null}
+    </div>
+  );
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activePhoto, setActivePhoto] = useState(0);
-  const [calendarFilter, setCalendarFilter] = useState<CalendarFilter>('all');
   const touchStartXRef = useRef<number | null>(null);
-  const upcomingEvents = getUpcomingEvents(calendarFilter, 8);
+  const upcomingEvents = getUpcomingEvents(4);
 
   const closeMenu = () => setMenuOpen(false);
   const showPreviousPhoto = () => {
@@ -56,6 +280,10 @@ function App() {
   const showNextPhoto = () => {
     setActivePhoto((current) => (current + 1) % galleryPhotos.length);
   };
+
+  if (window.location.pathname.replace(/\/+$/, '').endsWith('/calendar')) {
+    return <CalendarPage />;
+  }
 
   return (
     <div className="site-shell">
@@ -353,7 +581,7 @@ function App() {
                 <ExternalLink className="button button-primary" href={canvasEnrollmentUrl}>
                   Join on Canvas
                 </ExternalLink>
-                <a className="text-link" href="#events">View upcoming events</a>
+                <a className="text-link" href="./calendar/">View full calendar</a>
               </div>
               <div className="competition-target">
                 <span>Target competition</span>
@@ -371,21 +599,10 @@ function App() {
             <section className="calendar-events" id="events" aria-labelledby="events-heading">
               <div className="calendar-events-heading">
                 <div>
-                  <h3 id="events-heading">Upcoming events</h3>
+                  <h3 id="events-heading">Next up</h3>
                   <small>Synced from Canvas</small>
                 </div>
-                <label className="calendar-filter" htmlFor="calendar-filter">
-                  <span>Show</span>
-                  <select
-                    id="calendar-filter"
-                    value={calendarFilter}
-                    onChange={(event) => setCalendarFilter(event.target.value as CalendarFilter)}
-                  >
-                    {calendarFilters.map((filter) => (
-                      <option key={filter.value} value={filter.value}>{filter.label}</option>
-                    ))}
-                  </select>
-                </label>
+                <a className="text-link" href="./calendar/">View full calendar</a>
               </div>
               {upcomingEvents.length > 0 ? (
                 <ol className="calendar-event-list">
@@ -405,8 +622,8 @@ function App() {
                 </ol>
               ) : (
                 <div className="calendar-empty">
-                  <h3>No upcoming events are listed for this calendar.</h3>
-                  <p>Choose another calendar, check back soon, or contact the team for the current schedule.</p>
+                  <h3>No upcoming events are listed.</h3>
+                  <p>Check back soon or contact the team for the current schedule.</p>
                 </div>
               )}
             </section>

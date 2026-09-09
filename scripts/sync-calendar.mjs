@@ -31,6 +31,34 @@ function getNextPage(linkHeader) {
   return null;
 }
 
+function sanitizePublicDescription(value) {
+  if (typeof value !== 'string' || !value.trim()) return null;
+
+  const plainText = value
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/\b(?:https?:\/\/|www\.)\S+/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  return plainText ? plainText.slice(0, 800) : null;
+}
+
+function classifyEvent(title) {
+  const normalized = title.toLowerCase();
+  if (/competition|registration|sae deadline|external/.test(normalized)) return 'external';
+  if (/purchase|order|release/.test(normalized)) return 'purchase';
+  if (/meeting|work session|office hours/.test(normalized)) return 'meeting';
+  return 'milestone';
+}
+
 async function fetchCalendarEvents() {
   const now = new Date();
   const start = new Date(now);
@@ -84,15 +112,21 @@ const events = rawEvents
     const context = calendarContexts[event.context_code];
     if (!context || !event.start_at) return null;
 
+    const title = typeof event.title === 'string' && event.title.trim() ? event.title.trim() : 'Untitled event';
+    const type = classifyEvent(title);
+
     return {
       id: `canvas-event-${event.id}`,
-      title: typeof event.title === 'string' && event.title.trim() ? event.title.trim() : 'Untitled event',
+      title,
       start: event.all_day && event.all_day_date ? event.all_day_date : event.start_at,
       end: event.all_day ? null : (event.end_at ?? null),
       allDay: Boolean(event.all_day),
       location: typeof event.location_name === 'string' && event.location_name.trim()
         ? event.location_name.trim()
         : null,
+      description: sanitizePublicDescription(event.description),
+      type,
+      major: context.scope === 'team' && type === 'milestone',
       contextCode: event.context_code,
       scope: context.scope,
       subteam: context.subteam,
