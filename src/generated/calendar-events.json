@@ -1,34 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-261988",
-      "title": "Xometry Eligibility Complete",
-      "start": "2026-09-09",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Complete the required LaunchPad participation for Xometry team stipend eligibility and retain attendance evidence.",
-      "type": "milestone",
-      "major": true,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
-      "id": "canvas-event-262024",
-      "title": "Electrical ICD Complete",
-      "start": "2026-09-09",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Complete the current Electrical Interface Control Document so downstream interfaces and integration work use the current agreed information.",
-      "type": "milestone",
-      "major": false,
-      "contextCode": "group_56287",
-      "scope": "subteam",
-      "subteam": "Electrical"
-    },
-    {
       "id": "canvas-event-259953",
       "title": "Electrical Meeting",
       "start": "2026-09-10T00:00:00Z",
