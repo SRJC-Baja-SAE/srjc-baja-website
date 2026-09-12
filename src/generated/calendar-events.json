@@ -1,34 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-259898",
-      "title": "Vehicle Dynamics Meeting",
-      "start": "2026-09-10T22:00:00Z",
-      "end": "2026-09-11T01:00:00Z",
-      "allDay": false,
-      "location": "TBD",
-      "description": "Vehicle Dynamics subteam meeting. Thursdays 3-6 PM for now; the regular time may change based on the team's When2Meet. Room TBD. When2Meet:",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56196",
-      "scope": "subteam",
-      "subteam": "Vehicle Dynamics"
-    },
-    {
-      "id": "canvas-event-259938",
-      "title": "Chassis Meeting",
-      "start": "2026-09-11T03:00:00Z",
-      "end": "2026-09-11T04:00:00Z",
-      "allDay": false,
-      "location": "TBD",
-      "description": "Chassis subteam meeting. Thursdays at 8:00 PM. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
-    },
-    {
       "id": "canvas-event-257547",
       "title": "General Meeting",
       "start": "2026-09-12T01:00:00Z",
