@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-257547",
-      "title": "General Meeting",
-      "start": "2026-09-12T01:00:00Z",
-      "end": "2026-09-12T02:30:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 111/131",
-      "description": null,
-      "type": "meeting",
-      "major": false,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
       "id": "canvas-event-261989",
       "title": "Whole Car Readiness Check",
       "start": "2026-09-15",
