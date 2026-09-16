@@ -1,62 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-261989",
-      "title": "Whole Car Readiness Check",
-      "start": "2026-09-15",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Reconcile the physical and revision baseline, confirm the funding and authorized purchasing route, and make sure required safety ownership is assigned.",
-      "type": "milestone",
-      "major": true,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
-      "id": "canvas-event-262012",
-      "title": "Chassis Inventory and Revision Check",
-      "start": "2026-09-15",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Reconcile bent and in-process tubes, fixtures, the current production revision, material state, and any discrepancies before more irreversible work.",
-      "type": "milestone",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
-    },
-    {
-      "id": "canvas-event-262025",
-      "title": "Electrical Safety Responsibilities Assigned",
-      "start": "2026-09-15",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Assign clear owners for the required engine kill, brake-light, reverse indication, and protected power/wiring functions.",
-      "type": "milestone",
-      "major": false,
-      "contextCode": "group_56287",
-      "scope": "subteam",
-      "subteam": "Electrical"
-    },
-    {
-      "id": "canvas-event-262029",
-      "title": "Manufacturing Inventory Check",
-      "start": "2026-09-15",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Reconcile physical stock and in-process parts with the current revisions so manufacturing starts from known, usable material.",
-      "type": "milestone",
-      "major": false,
-      "contextCode": "group_56288",
-      "scope": "subteam",
-      "subteam": "Manufacturing"
-    },
-    {
       "id": "canvas-event-261990",
       "title": "Baja SAE Arizona Lottery Opens",
       "start": "2026-09-16",
