@@ -1,34 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-261990",
-      "title": "Baja SAE Arizona Lottery Opens",
-      "start": "2026-09-16",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "The Baja SAE Arizona lottery window opens.",
-      "type": "milestone",
-      "major": true,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
-      "id": "canvas-event-262030",
-      "title": "Manufacturing Schedule and Shop Plan Complete",
-      "start": "2026-09-16",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Define the operation-level shop plan with machines/processes, qualified operators, supervision, materials, duration estimates, inspection, and recovery routes.",
-      "type": "milestone",
-      "major": false,
-      "contextCode": "group_56288",
-      "scope": "subteam",
-      "subteam": "Manufacturing"
-    },
-    {
       "id": "canvas-event-259899",
       "title": "Vehicle Dynamics Meeting",
       "start": "2026-09-17T22:00:00Z",
