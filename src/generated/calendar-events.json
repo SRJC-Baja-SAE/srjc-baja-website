@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-259955",
-      "title": "Electrical Meeting",
-      "start": "2026-09-17T00:00:00Z",
-      "end": "2026-09-17T01:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 111",
-      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 111.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56287",
-      "scope": "subteam",
-      "subteam": "Electrical"
-    },
-    {
       "id": "canvas-event-259899",
       "title": "Vehicle Dynamics Meeting",
       "start": "2026-09-17T22:00:00Z",
