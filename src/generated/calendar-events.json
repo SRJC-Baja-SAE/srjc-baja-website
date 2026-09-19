@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-259899",
-      "title": "Vehicle Dynamics Meeting",
-      "start": "2026-09-17T22:00:00Z",
-      "end": "2026-09-18T01:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 141",
-      "description": "Vehicle Dynamics subteam meeting. Thursdays 3-6 PM for now; the regular time may change based on the team's When2Meet. Room TBD. When2Meet:",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56196",
-      "scope": "subteam",
-      "subteam": "Vehicle Dynamics"
-    },
-    {
       "id": "canvas-event-261991",
       "title": "Major Design Decisions and Purchase Day",
       "start": "2026-09-18",
