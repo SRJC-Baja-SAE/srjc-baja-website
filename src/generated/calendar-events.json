@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-257548",
-      "title": "General Meeting",
-      "start": "2026-09-19T01:00:00Z",
-      "end": "2026-09-19T02:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 111/131",
-      "description": null,
-      "type": "meeting",
-      "major": false,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
       "id": "canvas-event-261992",
       "title": "Purchase Follow-Up and Reconciliation",
       "start": "2026-09-24",
