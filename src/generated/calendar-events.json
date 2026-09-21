@@ -31,11 +31,11 @@
     {
       "id": "canvas-event-259900",
       "title": "Vehicle Dynamics Meeting",
-      "start": "2026-09-24T22:00:00Z",
+      "start": "2026-09-24T23:00:00Z",
       "end": "2026-09-25T01:00:00Z",
       "allDay": false,
       "location": "Lindley Center, Room 141",
-      "description": "Vehicle Dynamics subteam meeting. Thursdays 3-6 PM for now; the regular time may change based on the team's When2Meet. Room TBD. When2Meet:",
+      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
       "type": "meeting",
       "major": false,
       "contextCode": "group_56196",
@@ -115,11 +115,11 @@
     {
       "id": "canvas-event-259901",
       "title": "Vehicle Dynamics Meeting",
-      "start": "2026-10-01T22:00:00Z",
+      "start": "2026-10-01T23:00:00Z",
       "end": "2026-10-02T01:00:00Z",
       "allDay": false,
       "location": "Lindley Center, Room 141",
-      "description": "Vehicle Dynamics subteam meeting. Thursdays 3-6 PM for now; the regular time may change based on the team's When2Meet. Room TBD. When2Meet:",
+      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
       "type": "meeting",
       "major": false,
       "contextCode": "group_56196",
@@ -253,6 +253,20 @@
       "subteam": "Electrical"
     },
     {
+      "id": "canvas-event-262787",
+      "title": "Vehicle Dynamics Meeting",
+      "start": "2026-10-08T23:00:00Z",
+      "end": "2026-10-09T01:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 141",
+      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
+    },
+    {
       "id": "canvas-event-259942",
       "title": "Chassis Meeting",
       "start": "2026-10-09T03:00:00Z",
@@ -295,6 +309,20 @@
       "subteam": "Electrical"
     },
     {
+      "id": "canvas-event-262788",
+      "title": "Vehicle Dynamics Meeting",
+      "start": "2026-10-15T23:00:00Z",
+      "end": "2026-10-16T01:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 141",
+      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
+    },
+    {
       "id": "canvas-event-259943",
       "title": "Chassis Meeting",
       "start": "2026-10-16T03:00:00Z",
@@ -335,6 +363,20 @@
       "contextCode": "group_56287",
       "scope": "subteam",
       "subteam": "Electrical"
+    },
+    {
+      "id": "canvas-event-262789",
+      "title": "Vehicle Dynamics Meeting",
+      "start": "2026-10-22T23:00:00Z",
+      "end": "2026-10-23T01:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 141",
+      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
     },
     {
       "id": "canvas-event-262015",
@@ -405,6 +447,20 @@
       "contextCode": "group_56287",
       "scope": "subteam",
       "subteam": "Electrical"
+    },
+    {
+      "id": "canvas-event-262790",
+      "title": "Vehicle Dynamics Meeting",
+      "start": "2026-10-29T23:00:00Z",
+      "end": "2026-10-30T01:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 141",
+      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
     },
     {
       "id": "canvas-event-262021",
@@ -491,6 +547,20 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-262791",
+      "title": "Vehicle Dynamics Meeting",
+      "start": "2026-11-06T00:00:00Z",
+      "end": "2026-11-06T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 141",
+      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
+    },
+    {
       "id": "canvas-event-259946",
       "title": "Chassis Meeting",
       "start": "2026-11-06T04:00:00Z",
@@ -547,6 +617,20 @@
       "subteam": "Powertrain"
     },
     {
+      "id": "canvas-event-262792",
+      "title": "Vehicle Dynamics Meeting",
+      "start": "2026-11-13T00:00:00Z",
+      "end": "2026-11-13T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 141",
+      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
+    },
+    {
       "id": "canvas-event-259947",
       "title": "Chassis Meeting",
       "start": "2026-11-13T04:00:00Z",
@@ -601,6 +685,20 @@
       "contextCode": "group_56285",
       "scope": "subteam",
       "subteam": "Powertrain"
+    },
+    {
+      "id": "canvas-event-262793",
+      "title": "Vehicle Dynamics Meeting",
+      "start": "2026-11-20T00:00:00Z",
+      "end": "2026-11-20T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 141",
+      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
     },
     {
       "id": "canvas-event-259948",
@@ -729,6 +827,20 @@
       "subteam": "Business"
     },
     {
+      "id": "canvas-event-262794",
+      "title": "Vehicle Dynamics Meeting",
+      "start": "2026-12-04T00:00:00Z",
+      "end": "2026-12-04T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 141",
+      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
+    },
+    {
       "id": "canvas-event-259951",
       "title": "Chassis Meeting",
       "start": "2026-12-04T04:00:00Z",
@@ -799,6 +911,20 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-262795",
+      "title": "Vehicle Dynamics Meeting",
+      "start": "2026-12-11T00:00:00Z",
+      "end": "2026-12-11T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 141",
+      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
+    },
+    {
       "id": "canvas-event-259950",
       "title": "Chassis Meeting",
       "start": "2026-12-11T04:00:00Z",
@@ -853,6 +979,20 @@
       "contextCode": "course_85001",
       "scope": "team",
       "subteam": null
+    },
+    {
+      "id": "canvas-event-262796",
+      "title": "Vehicle Dynamics Meeting",
+      "start": "2026-12-18T00:00:00Z",
+      "end": "2026-12-18T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 141",
+      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56196",
+      "scope": "subteam",
+      "subteam": "Vehicle Dynamics"
     },
     {
       "id": "canvas-event-262006",
