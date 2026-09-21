@@ -58,6 +58,17 @@ img {
   max-width: 100%;
 }
 
+.chevron-icon {
+  display: block;
+  width: 1em;
+  height: 1em;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .nowrap {
   white-space: nowrap;
 }
@@ -506,14 +517,21 @@ section[id] {
 .gallery-arrow {
   position: absolute;
   top: 50%;
+  display: grid;
+  place-items: center;
   width: 48px;
   height: 48px;
+  padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.32);
   background: rgba(8, 8, 8, 0.78);
   color: var(--text);
-  font-size: 1.35rem;
   cursor: pointer;
   transform: translateY(-50%);
+}
+
+.gallery-arrow .chevron-icon {
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .gallery-arrow:hover {
@@ -617,9 +635,17 @@ section[id] {
 }
 
 .update-arrow {
+  display: grid;
+  place-items: center;
   justify-self: end;
+  width: 1.35rem;
+  height: 1.35rem;
   color: var(--accent);
-  font-size: 1.35rem;
+}
+
+.update-arrow .chevron-icon {
+  width: 1.05rem;
+  height: 1.05rem;
 }
 
 .section-team {
@@ -1109,8 +1135,16 @@ section[id] {
 }
 
 .month-navigation button {
-  padding: 5px;
-  font-size: 1.8rem;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+}
+
+.month-navigation button .chevron-icon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
 
 .calendar-filters {

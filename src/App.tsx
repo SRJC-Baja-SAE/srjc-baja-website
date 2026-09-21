@@ -53,6 +53,16 @@ function ExternalLink({
   );
 }
 
+function ChevronIcon({ direction }: { direction: 'left' | 'right' }) {
+  const path = direction === 'left' ? 'M15 18 9 12l6-6' : 'm9 18 6-6-6-6';
+
+  return (
+    <svg className="chevron-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d={path} />
+    </svg>
+  );
+}
+
 type EventSymbolKind = CalendarEventType | 'major';
 
 function EventSymbol({ kind }: { kind: EventSymbolKind }) {
@@ -288,9 +298,9 @@ function CalendarPage() {
               <button type="button" className={view === 'agenda' ? 'is-active' : ''} onClick={() => setView('agenda')}>Agenda</button>
             </div>
             <div className="month-navigation">
-              <button type="button" onClick={() => moveMonth(-1)} aria-label="Previous month">‹</button>
+              <button type="button" onClick={() => moveMonth(-1)} aria-label="Previous month"><ChevronIcon direction="left" /></button>
               <h2>{month.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}</h2>
-              <button type="button" onClick={() => moveMonth(1)} aria-label="Next month">›</button>
+              <button type="button" onClick={() => moveMonth(1)} aria-label="Next month"><ChevronIcon direction="right" /></button>
             </div>
           </div>
           <FilterBar teams={teams} types={types} onTeam={toggleTeam} onTypes={setTypes} />
@@ -554,10 +564,10 @@ function App() {
                   loading="lazy"
                 />
                 <button className="gallery-arrow gallery-arrow-previous" type="button" onClick={showPreviousPhoto} aria-label="Show previous photo">
-                  {'<'}
+                  <ChevronIcon direction="left" />
                 </button>
                 <button className="gallery-arrow gallery-arrow-next" type="button" onClick={showNextPhoto} aria-label="Show next photo">
-                  {'>'}
+                  <ChevronIcon direction="right" />
                 </button>
                 <figcaption>
                   <span>{galleryPhotos[activePhoto].caption}</span>
@@ -611,7 +621,7 @@ function App() {
                     <h3>{update.title}</h3>
                   </div>
                   <span className="update-arrow" aria-hidden="true">
-                    {'>'}
+                    <ChevronIcon direction="right" />
                   </span>
                 </ExternalLink>
               ))}
