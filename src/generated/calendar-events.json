@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-261992",
-      "title": "Purchase Follow-Up and Reconciliation",
-      "start": "2026-09-24",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Follow up the September 18 purchase wave. Place newly released or late-approved items, confirm supplier promises and arrival dates, and reconcile purchaser and receiver records.",
-      "type": "purchase",
-      "major": false,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
       "id": "canvas-event-259900",
       "title": "Vehicle Dynamics Meeting",
       "start": "2026-09-24T23:00:00Z",
