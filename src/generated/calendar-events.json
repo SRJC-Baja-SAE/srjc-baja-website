@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-261993",
-      "title": "SRJC Closure",
-      "start": "2026-09-25",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "SRJC is closed. Do not assume normal shop access or capacity.",
-      "type": "milestone",
-      "major": true,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
       "id": "canvas-event-261994",
       "title": "Baja SAE Arizona Lottery Deadline",
       "start": "2026-09-30",
