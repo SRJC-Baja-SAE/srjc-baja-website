@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-259900",
-      "title": "Vehicle Dynamics Meeting",
-      "start": "2026-09-24T23:00:00Z",
-      "end": "2026-09-25T01:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 141",
-      "description": "Vehicle Dynamics subteam meeting. Thursdays 4:00–6:00 PM in Lindley Center, Room 141.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56196",
-      "scope": "subteam",
-      "subteam": "Vehicle Dynamics"
-    },
-    {
       "id": "canvas-event-261993",
       "title": "SRJC Closure",
       "start": "2026-09-25",
@@ -27,20 +13,6 @@
       "contextCode": "course_85001",
       "scope": "team",
       "subteam": null
-    },
-    {
-      "id": "canvas-event-259940",
-      "title": "Chassis Meeting",
-      "start": "2026-09-25T03:00:00Z",
-      "end": "2026-09-25T04:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": "Chassis subteam meeting. Thursdays at 8:00 PM. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
     },
     {
       "id": "canvas-event-261994",
