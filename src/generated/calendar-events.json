@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-261994",
-      "title": "Baja SAE Arizona Lottery Deadline",
-      "start": "2026-09-30",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Submit and verify the team's Baja SAE Arizona lottery entry by this date.",
-      "type": "milestone",
-      "major": true,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
       "id": "canvas-event-261995",
       "title": "Baja SAE Arizona Lottery Results",
       "start": "2026-10-01",
