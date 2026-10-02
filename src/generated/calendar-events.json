@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-261995",
-      "title": "Baja SAE Arizona Lottery Results",
-      "start": "2026-10-01",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Baja SAE Arizona lottery results are expected.",
-      "type": "milestone",
-      "major": true,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
       "id": "canvas-event-259901",
       "title": "Vehicle Dynamics Meeting",
       "start": "2026-10-01T23:00:00Z",
