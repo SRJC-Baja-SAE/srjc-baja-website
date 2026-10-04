@@ -1,34 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-262862",
-      "title": "Powertrain Meeting",
-      "start": "2026-10-03T00:00:00Z",
-      "end": "2026-10-03T01:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": null,
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56285",
-      "scope": "subteam",
-      "subteam": "Powertrain"
-    },
-    {
-      "id": "canvas-event-257551",
-      "title": "General Meeting",
-      "start": "2026-10-03T01:00:00Z",
-      "end": "2026-10-03T02:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 111/131",
-      "description": null,
-      "type": "meeting",
-      "major": false,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
       "id": "canvas-event-259958",
       "title": "Electrical Meeting",
       "start": "2026-10-08T00:00:00Z",
