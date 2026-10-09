@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-259958",
-      "title": "Electrical Meeting",
-      "start": "2026-10-08T00:00:00Z",
-      "end": "2026-10-08T01:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 111",
-      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 111.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56287",
-      "scope": "subteam",
-      "subteam": "Electrical"
-    },
-    {
       "id": "canvas-event-262787",
       "title": "Vehicle Dynamics Meeting",
       "start": "2026-10-08T23:00:00Z",
@@ -27,20 +13,6 @@
       "contextCode": "group_56196",
       "scope": "subteam",
       "subteam": "Vehicle Dynamics"
-    },
-    {
-      "id": "canvas-event-259942",
-      "title": "Chassis Meeting",
-      "start": "2026-10-09T03:00:00Z",
-      "end": "2026-10-09T04:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": "Chassis subteam meeting. Thursdays at 8:00 PM. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
     },
     {
       "id": "canvas-event-262863",
@@ -71,13 +43,27 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-259942",
+      "title": "Chassis Meeting",
+      "start": "2026-10-13T00:00:00Z",
+      "end": "2026-10-13T01:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 131",
+      "description": "Chassis subteam meeting. Mondays at 5:00 PM in Lindley Center, Room 131.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56286",
+      "scope": "subteam",
+      "subteam": "Chassis"
+    },
+    {
       "id": "canvas-event-259959",
       "title": "Electrical Meeting",
       "start": "2026-10-15T00:00:00Z",
       "end": "2026-10-15T01:00:00Z",
       "allDay": false,
-      "location": "Lindley Center, Room 111",
-      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "location": "Lindley Center, Room 131",
+      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 131.",
       "type": "meeting",
       "major": false,
       "contextCode": "group_56287",
@@ -97,20 +83,6 @@
       "contextCode": "group_56196",
       "scope": "subteam",
       "subteam": "Vehicle Dynamics"
-    },
-    {
-      "id": "canvas-event-259943",
-      "title": "Chassis Meeting",
-      "start": "2026-10-16T03:00:00Z",
-      "end": "2026-10-16T04:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": "Chassis subteam meeting. Thursdays at 8:00 PM. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
     },
     {
       "id": "canvas-event-262864",
@@ -141,13 +113,27 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-259943",
+      "title": "Chassis Meeting",
+      "start": "2026-10-20T00:00:00Z",
+      "end": "2026-10-20T01:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 131",
+      "description": "Chassis subteam meeting. Mondays at 5:00 PM in Lindley Center, Room 131.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56286",
+      "scope": "subteam",
+      "subteam": "Chassis"
+    },
+    {
       "id": "canvas-event-262574",
       "title": "Electrical Meeting",
       "start": "2026-10-22T00:00:00Z",
       "end": "2026-10-22T01:00:00Z",
       "allDay": false,
-      "location": "Lindley Center, Room 111",
-      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "location": "Lindley Center, Room 131",
+      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 131.",
       "type": "meeting",
       "major": false,
       "contextCode": "group_56287",
@@ -197,20 +183,6 @@
       "subteam": "Vehicle Dynamics"
     },
     {
-      "id": "canvas-event-259944",
-      "title": "Chassis Meeting",
-      "start": "2026-10-23T03:00:00Z",
-      "end": "2026-10-23T04:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": "Chassis subteam meeting. Thursdays at 8:00 PM. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
-    },
-    {
       "id": "canvas-event-262865",
       "title": "Powertrain Meeting",
       "start": "2026-10-24T00:00:00Z",
@@ -239,13 +211,27 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-259944",
+      "title": "Chassis Meeting",
+      "start": "2026-10-27T00:00:00Z",
+      "end": "2026-10-27T01:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 131",
+      "description": "Chassis subteam meeting. Mondays at 5:00 PM in Lindley Center, Room 131.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56286",
+      "scope": "subteam",
+      "subteam": "Chassis"
+    },
+    {
       "id": "canvas-event-262575",
       "title": "Electrical Meeting",
       "start": "2026-10-29T00:00:00Z",
       "end": "2026-10-29T01:00:00Z",
       "allDay": false,
-      "location": "Lindley Center, Room 111",
-      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "location": "Lindley Center, Room 131",
+      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 131.",
       "type": "meeting",
       "major": false,
       "contextCode": "group_56287",
@@ -279,20 +265,6 @@
       "contextCode": "group_56285",
       "scope": "subteam",
       "subteam": "Powertrain"
-    },
-    {
-      "id": "canvas-event-259945",
-      "title": "Chassis Meeting",
-      "start": "2026-10-30T03:00:00Z",
-      "end": "2026-10-30T04:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": "Chassis subteam meeting. Thursdays at 8:00 PM. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
     },
     {
       "id": "canvas-event-261997",
@@ -337,13 +309,27 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-259945",
+      "title": "Chassis Meeting",
+      "start": "2026-11-03T01:00:00Z",
+      "end": "2026-11-03T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 131",
+      "description": "Chassis subteam meeting. Mondays at 5:00 PM in Lindley Center, Room 131.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56286",
+      "scope": "subteam",
+      "subteam": "Chassis"
+    },
+    {
       "id": "canvas-event-262576",
       "title": "Electrical Meeting",
       "start": "2026-11-05T01:00:00Z",
       "end": "2026-11-05T02:00:00Z",
       "allDay": false,
-      "location": "Lindley Center, Room 111",
-      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "location": "Lindley Center, Room 131",
+      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 131.",
       "type": "meeting",
       "major": false,
       "contextCode": "group_56287",
@@ -379,20 +365,6 @@
       "subteam": "Vehicle Dynamics"
     },
     {
-      "id": "canvas-event-259946",
-      "title": "Chassis Meeting",
-      "start": "2026-11-06T04:00:00Z",
-      "end": "2026-11-06T05:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": "Chassis subteam meeting. Thursdays at 8:00 PM. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
-    },
-    {
       "id": "canvas-event-262867",
       "title": "Powertrain Meeting",
       "start": "2026-11-07T01:00:00Z",
@@ -421,6 +393,20 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-259946",
+      "title": "Chassis Meeting",
+      "start": "2026-11-10T01:00:00Z",
+      "end": "2026-11-10T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 131",
+      "description": "Chassis subteam meeting. Mondays at 5:00 PM in Lindley Center, Room 131.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56286",
+      "scope": "subteam",
+      "subteam": "Chassis"
+    },
+    {
       "id": "canvas-event-261999",
       "title": "SRJC Closure",
       "start": "2026-11-11",
@@ -433,6 +419,20 @@
       "contextCode": "course_85001",
       "scope": "team",
       "subteam": null
+    },
+    {
+      "id": "canvas-event-262578",
+      "title": "Electrical Meeting",
+      "start": "2026-11-12T01:00:00Z",
+      "end": "2026-11-12T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 131",
+      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 131.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56287",
+      "scope": "subteam",
+      "subteam": "Electrical"
     },
     {
       "id": "canvas-event-262022",
@@ -463,20 +463,6 @@
       "subteam": "Vehicle Dynamics"
     },
     {
-      "id": "canvas-event-259947",
-      "title": "Chassis Meeting",
-      "start": "2026-11-13T04:00:00Z",
-      "end": "2026-11-13T05:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": "Chassis subteam meeting. Thursdays at 8:00 PM. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
-    },
-    {
       "id": "canvas-event-262868",
       "title": "Powertrain Meeting",
       "start": "2026-11-14T01:00:00Z",
@@ -505,13 +491,27 @@
       "subteam": null
     },
     {
-      "id": "canvas-event-262578",
+      "id": "canvas-event-259947",
+      "title": "Chassis Meeting",
+      "start": "2026-11-17T01:00:00Z",
+      "end": "2026-11-17T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 131",
+      "description": "Chassis subteam meeting. Mondays at 5:00 PM in Lindley Center, Room 131.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56286",
+      "scope": "subteam",
+      "subteam": "Chassis"
+    },
+    {
+      "id": "canvas-event-262579",
       "title": "Electrical Meeting",
       "start": "2026-11-19T01:00:00Z",
       "end": "2026-11-19T02:00:00Z",
       "allDay": false,
-      "location": "Lindley Center, Room 111",
-      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "location": "Lindley Center, Room 131",
+      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 131.",
       "type": "meeting",
       "major": false,
       "contextCode": "group_56287",
@@ -547,20 +547,6 @@
       "subteam": "Vehicle Dynamics"
     },
     {
-      "id": "canvas-event-259948",
-      "title": "Chassis Meeting",
-      "start": "2026-11-20T04:00:00Z",
-      "end": "2026-11-20T05:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": "Chassis subteam meeting. Thursdays at 8:00 PM. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
-    },
-    {
       "id": "canvas-event-262869",
       "title": "Powertrain Meeting",
       "start": "2026-11-21T01:00:00Z",
@@ -589,6 +575,20 @@
       "subteam": null
     },
     {
+      "id": "canvas-event-259948",
+      "title": "Chassis Meeting",
+      "start": "2026-11-24T01:00:00Z",
+      "end": "2026-11-24T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 131",
+      "description": "Chassis subteam meeting. Mondays at 5:00 PM in Lindley Center, Room 131.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56286",
+      "scope": "subteam",
+      "subteam": "Chassis"
+    },
+    {
       "id": "canvas-event-262000",
       "title": "SRJC Closure",
       "start": "2026-11-26",
@@ -603,13 +603,13 @@
       "subteam": null
     },
     {
-      "id": "canvas-event-262579",
+      "id": "canvas-event-262580",
       "title": "Electrical Meeting",
       "start": "2026-11-26T01:00:00Z",
       "end": "2026-11-26T02:00:00Z",
       "allDay": false,
-      "location": "Lindley Center, Room 111",
-      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "location": "Lindley Center, Room 131",
+      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 131.",
       "type": "meeting",
       "major": false,
       "contextCode": "group_56287",
@@ -631,13 +631,27 @@
       "subteam": null
     },
     {
-      "id": "canvas-event-262580",
+      "id": "canvas-event-259950",
+      "title": "Chassis Meeting",
+      "start": "2026-12-01T01:00:00Z",
+      "end": "2026-12-01T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 131",
+      "description": "Chassis subteam meeting. Mondays at 5:00 PM in Lindley Center, Room 131.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56286",
+      "scope": "subteam",
+      "subteam": "Chassis"
+    },
+    {
+      "id": "canvas-event-262581",
       "title": "Electrical Meeting",
       "start": "2026-12-03T01:00:00Z",
       "end": "2026-12-03T02:00:00Z",
       "allDay": false,
-      "location": "Lindley Center, Room 111",
-      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "location": "Lindley Center, Room 131",
+      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 131.",
       "type": "meeting",
       "major": false,
       "contextCode": "group_56287",
@@ -701,20 +715,6 @@
       "subteam": "Vehicle Dynamics"
     },
     {
-      "id": "canvas-event-259951",
-      "title": "Chassis Meeting",
-      "start": "2026-12-04T04:00:00Z",
-      "end": "2026-12-04T05:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": "Chassis subteam meeting. Thursdays at 8:00 PM. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
-    },
-    {
       "id": "canvas-event-262871",
       "title": "Powertrain Meeting",
       "start": "2026-12-05T01:00:00Z",
@@ -757,13 +757,27 @@
       "subteam": null
     },
     {
-      "id": "canvas-event-262581",
+      "id": "canvas-event-259951",
+      "title": "Chassis Meeting",
+      "start": "2026-12-08T01:00:00Z",
+      "end": "2026-12-08T02:00:00Z",
+      "allDay": false,
+      "location": "Lindley Center, Room 131",
+      "description": "Chassis subteam meeting. Mondays at 5:00 PM in Lindley Center, Room 131.",
+      "type": "meeting",
+      "major": false,
+      "contextCode": "group_56286",
+      "scope": "subteam",
+      "subteam": "Chassis"
+    },
+    {
+      "id": "canvas-event-262582",
       "title": "Electrical Meeting",
       "start": "2026-12-10T01:00:00Z",
       "end": "2026-12-10T02:00:00Z",
       "allDay": false,
-      "location": "Lindley Center, Room 111",
-      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 111.",
+      "location": "Lindley Center, Room 131",
+      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 131.",
       "type": "meeting",
       "major": false,
       "contextCode": "group_56287",
@@ -799,20 +813,6 @@
       "subteam": "Vehicle Dynamics"
     },
     {
-      "id": "canvas-event-259950",
-      "title": "Chassis Meeting",
-      "start": "2026-12-11T04:00:00Z",
-      "end": "2026-12-11T05:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": "Chassis subteam meeting. Thursdays at 8:00 PM. Room TBD.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
-    },
-    {
       "id": "canvas-event-262872",
       "title": "Powertrain Meeting",
       "start": "2026-12-12T01:00:00Z",
@@ -839,20 +839,6 @@
       "contextCode": "course_85001",
       "scope": "team",
       "subteam": null
-    },
-    {
-      "id": "canvas-event-262582",
-      "title": "Electrical Meeting",
-      "start": "2026-12-17T01:00:00Z",
-      "end": "2026-12-17T02:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 111",
-      "description": "Electrical subteam meeting. Every Wednesday at 5:00 PM in Lindley Center, Room 111.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56287",
-      "scope": "subteam",
-      "subteam": "Electrical"
     },
     {
       "id": "canvas-event-262005",
