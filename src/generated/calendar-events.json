@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-257552",
-      "title": "General Meeting",
-      "start": "2026-10-10T01:00:00Z",
-      "end": "2026-10-10T02:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 111/131",
-      "description": null,
-      "type": "meeting",
-      "major": false,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
       "id": "canvas-event-259942",
       "title": "Chassis Meeting",
       "start": "2026-10-13T00:00:00Z",
