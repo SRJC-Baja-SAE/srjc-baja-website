@@ -1,34 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-262864",
-      "title": "Powertrain Meeting",
-      "start": "2026-10-17T00:00:00Z",
-      "end": "2026-10-17T01:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": null,
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56285",
-      "scope": "subteam",
-      "subteam": "Powertrain"
-    },
-    {
-      "id": "canvas-event-257553",
-      "title": "General Meeting",
-      "start": "2026-10-17T01:00:00Z",
-      "end": "2026-10-17T02:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 111/131",
-      "description": null,
-      "type": "meeting",
-      "major": false,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
       "id": "canvas-event-259943",
       "title": "Chassis Meeting",
       "start": "2026-10-20T00:00:00Z",
