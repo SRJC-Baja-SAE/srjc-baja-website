@@ -1,34 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-262015",
-      "title": "Bare Chassis Complete and Inspected",
-      "start": "2026-10-23",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Bare chassis welded and dimensionally/weld inspected. Critical repair items should be closed before integration hides the structure.",
-      "type": "milestone",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
-    },
-    {
-      "id": "canvas-event-262018",
-      "title": "Suspension, Steering, and Brake Hardware Ready",
-      "start": "2026-10-23",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Accepted suspension, steering, and brake hardware should be ready for assembly so the team can move into the rolling chassis build.",
-      "type": "milestone",
-      "major": false,
-      "contextCode": "group_56196",
-      "scope": "subteam",
-      "subteam": "Vehicle Dynamics"
-    },
-    {
       "id": "canvas-event-262865",
       "title": "Powertrain Meeting",
       "start": "2026-10-24T00:00:00Z",
