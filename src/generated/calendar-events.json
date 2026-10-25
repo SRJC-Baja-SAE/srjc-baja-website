@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-262865",
-      "title": "Powertrain Meeting",
-      "start": "2026-10-24T00:00:00Z",
-      "end": "2026-10-24T01:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": null,
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56285",
-      "scope": "subteam",
-      "subteam": "Powertrain"
-    },
-    {
       "id": "canvas-event-257554",
       "title": "General Meeting",
       "start": "2026-10-24T01:00:00Z",
