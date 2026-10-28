@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-259944",
-      "title": "Chassis Meeting",
-      "start": "2026-10-27T00:00:00Z",
-      "end": "2026-10-27T01:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 131",
-      "description": "Chassis subteam meeting. Mondays at 5:00 PM in Lindley Center, Room 131.",
-      "type": "meeting",
-      "major": false,
-      "contextCode": "group_56286",
-      "scope": "subteam",
-      "subteam": "Chassis"
-    },
-    {
       "id": "canvas-event-262575",
       "title": "Electrical Meeting",
       "start": "2026-10-29T00:00:00Z",
