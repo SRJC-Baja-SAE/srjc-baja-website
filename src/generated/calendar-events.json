@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-262021",
-      "title": "Powertrain Hardware Ready",
-      "start": "2026-10-30",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Accepted custom and machined drivetrain parts should be ready so Powertrain can move into bench assembly and fit checks.",
-      "type": "milestone",
-      "major": false,
-      "contextCode": "group_56285",
-      "scope": "subteam",
-      "subteam": "Powertrain"
-    },
-    {
       "id": "canvas-event-261997",
       "title": "Xometry Team Stipend Deadline",
       "start": "2026-10-31",
