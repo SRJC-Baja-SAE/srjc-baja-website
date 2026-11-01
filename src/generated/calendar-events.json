@@ -1,34 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-261997",
-      "title": "Xometry Team Stipend Deadline",
-      "start": "2026-10-31",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Submit the Xometry team stipend application by this date if eligibility requirements were completed.",
-      "type": "milestone",
-      "major": true,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
-      "id": "canvas-event-257555",
-      "title": "General Meeting",
-      "start": "2026-10-31T01:00:00Z",
-      "end": "2026-10-31T02:00:00Z",
-      "allDay": false,
-      "location": "Lindley Center, Room 111/131",
-      "description": null,
-      "type": "meeting",
-      "major": false,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
       "id": "canvas-event-259945",
       "title": "Chassis Meeting",
       "start": "2026-11-03T01:00:00Z",
