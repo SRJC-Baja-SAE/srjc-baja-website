@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-261998",
-      "title": "Rolling Chassis Milestone",
-      "start": "2026-11-06",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Target a rolling, steering, braking car with suspension installed through its operating range and a controlled push/stop check complete. Test site, crew, transport, and backup planning should also be substantially confirmed.",
-      "type": "milestone",
-      "major": true,
-      "contextCode": "course_85001",
-      "scope": "team",
-      "subteam": null
-    },
-    {
       "id": "canvas-event-262867",
       "title": "Powertrain Meeting",
       "start": "2026-11-07T01:00:00Z",
