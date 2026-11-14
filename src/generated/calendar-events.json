@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-262022",
-      "title": "Powertrain Bench Test",
-      "start": "2026-11-13",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Complete the guarded drivetrain bench fit and function check, including alignment, retention, reverse/shift function, and obvious interference.",
-      "type": "milestone",
-      "major": false,
-      "contextCode": "group_56285",
-      "scope": "subteam",
-      "subteam": "Powertrain"
-    },
-    {
       "id": "canvas-event-262868",
       "title": "Powertrain Meeting",
       "start": "2026-11-14T01:00:00Z",
