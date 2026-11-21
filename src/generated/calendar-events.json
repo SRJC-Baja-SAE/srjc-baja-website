@@ -1,20 +1,6 @@
 {
   "events": [
     {
-      "id": "canvas-event-262023",
-      "title": "Powertrain Installed and Working",
-      "start": "2026-11-20",
-      "end": null,
-      "allDay": true,
-      "location": null,
-      "description": "Powertrain installed and mechanically functional with alignment, retention, throttle return, guarding, fuel/exhaust, and hot-surface packaging addressed.",
-      "type": "milestone",
-      "major": false,
-      "contextCode": "group_56285",
-      "scope": "subteam",
-      "subteam": "Powertrain"
-    },
-    {
       "id": "canvas-event-262869",
       "title": "Powertrain Meeting",
       "start": "2026-11-21T01:00:00Z",
